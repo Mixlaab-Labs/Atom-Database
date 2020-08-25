@@ -1,3 +1,4 @@
+# Base de datos para el proyecto Atom
 from pymongo import MongoClient
 
 MONGO_URI='mongodb://localhost'
