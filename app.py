@@ -1,5 +1,7 @@
 # Base de datos para el proyecto Atom
 from pymongo import MongoClient
+import datetime
+from datetime import datetime
 
 MONGO_URI='mongodb://localhost'
 
@@ -25,10 +27,10 @@ print('Inserte bateria (%)y tiempo en vuelo (s):')
 b = input()
 t = input()
 
-collection2.insert({'AX':ax,'AY':ay,'AZ':az})
-collection.insert({'X': x,'Y': y,'Z': z})
-bateria={'Bateria': b}
-tiempo={'Tiempo en vuelo': t}
+collection2.insert({'AX':ax,'AY':ay,'AZ':az, 'date':str(datetime.now())})
+collection.insert({'X': x,'Y': y,'Z': z, 'date':str(datetime.now())})
+bateria={'Bateria': b, 'date': str(datetime.now())}
+tiempo={'Tiempo en vuelo': t, 'date':str(datetime.now())}
 collection3.insert_many([bateria, tiempo])
 
 Aceleracion=collection2.find()
